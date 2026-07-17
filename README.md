@@ -2,7 +2,7 @@
 
 **Mohammed AL-Natsha** is an active production engineer and founder of **OptiCore**, delivering modern web architecture, automation systems, and secure deployment pipelines with a professional portfolio that serves as his live digital resume.
 
-[✉️ Email](mailto:mohamed.alnatsh@gmail.com) · [🌐 Profile](https://moamedalnatsh.github.io/profile) · [🔗 LinkedIn](https://www.linkedin.com/in/mohamed-alnatsh)
+[✉️ Email](mailto:mohamed.alnatsh@gmail.com) · [🌐 Profile](https://mohamedalnatsh.github.io/portfolio/) · [🔗 LinkedIn](https://www.linkedin.com/in/mohamed-alnatsh)
 
 ---
 
