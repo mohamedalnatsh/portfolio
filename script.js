@@ -16,7 +16,7 @@ const translations = {
     hero_title: "Mohammed AL-Natsha",
     hero_role: "Software & Front-End Developer",
     hero_bio:
-      "<strong>Software & Front-End Developer</strong> with a strong background in Scientific studies (94% GPA). Developed <strong>15+ deployed GitHub projects</strong> encompassing responsive web architectures, automated secure bots, and network security scripts. Experienced in technical system optimization, workstation maintenance, and cross-functional team coordination to deliver production-ready software.",
+      "<strong>Software & Front-End Developer</strong> with a strong background in Scientific studies (95.4% GPA). Developed <strong>15+ deployed GitHub projects</strong> encompassing responsive web architectures, automated secure bots, and network security scripts. Experienced in technical system optimization, and cross-functional team coordination to deliver production-ready software.",
     hero_cta_projects: "View My Projects",
     hero_cta_contact: "Get in Touch",
 
@@ -149,7 +149,7 @@ const translations = {
     hero_title: "محمد النتشة",
     hero_role: "مطور برمجيات وواجهات أمامية",
     hero_bio:
-      "<strong>مطور برمجيات وواجهات أمامية</strong> بخلفية قوية في الدراسات العلمية (معدل 94%). قمت بتطوير <strong>أكثر من 15 مشروعاً منشورة على GitHub</strong> تشمل معمارية الويب المستجيبة، وبوتات الأتمتة الآمنة، وسكربتات أمن الشبكات. خبير في تحسين الأنظمة التقنية، وصيانة محطات العمل، وتنسيق الفرق لتقديم برمجيات جاهزة للإنتاج.",
+      "<strong>مطور برمجيات وواجهات أمامية</strong> بخلفية قوية في الدراسات العلمية (معدل 95.4%). قمت بتطوير <strong>أكثر من 15 مشروعاً منشورة على GitHub</strong>  تشمل معمارية الويب المستجيبة، وبوتات الأتمتة الآمنة، وسكربتات أمن الشبكات. خبير في تحسين الأنظمة التقنية وتنسيق الفرق لتقديم برمجيات جاهزة للإنتاج.",
     hero_cta_projects: "عرض مشاريعي",
     hero_cta_contact: "تواصل معي",
 

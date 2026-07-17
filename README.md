@@ -8,7 +8,7 @@
 
 ## Professional Profile
 
-A driven 16-year-old software engineer operating at the intersection of academic excellence and real-world delivery. Mohammed balances a **94% GPA in the Scientific Academic Stream** with the execution of live deployments, multilingual website systems, automation tooling, and agency-grade client work.
+A driven 16-year-old software engineer operating at the intersection of academic excellence and real-world delivery. Mohammed balances a **95.4% GPA in the Scientific Academic Stream** with the execution of live deployments, multilingual website systems, automation tooling, and agency-grade client work.
 
 - Developed and maintained **multi-page frontend systems** with responsive design, semantic markup, and polished UI/UX outcomes.
 - Built practical automation scripts and secure tooling for production, including service bots, network auditing, and client-facing dashboards.
