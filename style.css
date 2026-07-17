@@ -3,6 +3,7 @@
    Dark modern palette
    ============================================================ */
 
+/* === [GLOBAL_VARIABLES] START === */
 :root {
   --bg: #0b1020;
   --bg-2: #0f1730;
@@ -17,7 +18,9 @@
   --danger: #ef4444;
   --radius: 0.75rem;
 }
+/* === [GLOBAL_VARIABLES] END === */
 
+/* === [RESET_AND_FOUNDATION] START === */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -50,7 +53,9 @@ a {
   color: inherit;
   text-decoration: none;
 }
+/* === [RESET_AND_FOUNDATION] END === */
 
+/* === [NAVBAR_LTR_FREEZE] START === */
 /* -------------------- Topbar / Header -------------------- */
 .topbar {
   display: flex;
@@ -120,7 +125,9 @@ a {
   background: rgba(59, 130, 246, 0.18);
   border: 1px solid rgba(59, 130, 246, 0.35);
 }
+/* === [NAVBAR_LTR_FREEZE] END === */
 
+/* === [HERO_SECTION] START === */
 /* -------------------- Hero -------------------- */
 .hero {
   max-width: 1100px;
@@ -175,7 +182,9 @@ a {
   justify-content: center;
   margin-top: 8px;
 }
+/* === [HERO_SECTION] END === */
 
+/* === [CTA_BUTTONS] START === */
 /* -------------------- CTA button -------------------- */
 .cta {
   display: inline-flex;
@@ -208,7 +217,9 @@ a {
   border-color: rgba(59, 130, 246, 0.45);
   box-shadow: none;
 }
+/* === [CTA_BUTTONS] END === */
 
+/* === [DOMAIN_CARDS_AND_PILLS] START === */
 /* -------------------- Domain cards -------------------- */
 .cards {
   display: grid;
@@ -302,7 +313,9 @@ a {
   color: var(--accent-2);
   font-size: 12px;
 }
+/* === [DOMAIN_CARDS_AND_PILLS] END === */
 
+/* === [PROJECTS_PAGE_LAYOUT] START === */
 /* -------------------- Projects page -------------------- */
 .projects-page {
   max-width: 1200px;
@@ -367,6 +380,9 @@ a {
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 22px;
 }
+/* === [PROJECTS_PAGE_LAYOUT] END === */
+
+/* === [PROJECT_CARDS_GRID] START === */
 .project-card {
   background: linear-gradient(180deg, var(--panel) 0%, var(--bg-2) 100%);
   border: 1px solid var(--border);
@@ -532,7 +548,9 @@ a {
   height: 14px;
   fill: currentColor;
 }
+/* === [PROJECT_CARDS_GRID] END === */
 
+/* === [CONTACT_FORM_PAGE] START === */
 /* -------------------- Contact page -------------------- */
 .contact-shell {
   display: flex;
@@ -697,9 +715,9 @@ a {
   border-color: var(--danger) !important;
   box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
 }
+/* === [CONTACT_FORM_PAGE] END === */
 
-/* Quick info aside */
-
+/* === [MODALS] START === */
 /* -------------------- Modals -------------------- */
 .modal-overlay,
 .error-modal-overlay {
@@ -917,3 +935,9 @@ a {
 [lang="ar"] .lang-en {
   display: none;
 }
+/* === [MODALS] END === */
+
+/* === [FOOTER_AND_UTILITIES] START === */
+/* Footer styling and language toggle controls */
+/* (Footer and utility styles included above) */
+/* === [FOOTER_AND_UTILITIES] END === */

@@ -1,0 +1,9 @@
+# robots.txt — Mohammed AL-Natsha Portfolio
+# Allows all major search engine crawlers to index the portfolio
+
+User-agent: *
+Allow: /
+Disallow: 
+
+# Sitemap location
+Sitemap: https://moamedalnatsh.github.io/profile/sitemap.xml
