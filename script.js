@@ -9,6 +9,7 @@ const translations = {
     nav_home: "Home",
     nav_projects: "Projects",
     nav_contact: "Contact",
+    download_cv: "Download CV",
     nav_toggle: "AR",
 
     // Home
@@ -142,6 +143,7 @@ const translations = {
     nav_home: "الرئيسية",
     nav_projects: "المشاريع",
     nav_contact: "اتصل بي",
+    download_cv: "تحميل الـ CV",
     nav_toggle: "EN",
 
     // Home
