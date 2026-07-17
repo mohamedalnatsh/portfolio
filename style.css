@@ -56,6 +56,8 @@ a {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
   width: 100%;
   padding: 18px 28px;
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
@@ -64,12 +66,7 @@ a {
   z-index: 40;
   backdrop-filter: blur(8px);
   background: rgba(11, 16, 32, 0.72);
-  /* Force LTR layout for navbar components */
-  flex-direction: row !important;
-}
-
-[dir="rtl"] .topbar {
-  flex-direction: row !important;
+  direction: ltr;
 }
 
 .brand {
@@ -79,6 +76,7 @@ a {
   font-weight: 700;
   letter-spacing: 0.4px;
   font-size: 18px;
+  flex-shrink: 0;
 }
 
 .brand-mark {
@@ -98,9 +96,11 @@ a {
 .nav-links {
   display: flex;
   align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
   gap: 6px;
-  /* Force LTR layout for nav links */
-  flex-direction: row !important;
+  margin-left: auto;
+  direction: ltr;
 }
 .nav-links a {
   padding: 9px 14px;
@@ -108,6 +108,8 @@ a {
   color: var(--muted);
   font-size: 14px;
   transition: all 0.2s ease;
+  white-space: nowrap;
+  direction: ltr;
 }
 .nav-links a:hover {
   color: var(--text);
@@ -357,7 +359,7 @@ a {
   color: var(--muted);
   font-size: 14.5px;
   line-height: 1.7;
-  max-width: 720px;
+  max-width: 780px;
 }
 
 .projects-grid {
@@ -376,27 +378,24 @@ a {
 }
 
 /* Featured Project Styling */
+/* Keep any future featured card on the same responsive grid and spacing rules as the standard cards. */
 .featured-grid {
-  display: flex !important;
-
-  justify-content: flex-start;
-  margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 22px;
 }
 
 .project-card-featured {
   display: flex;
   flex-direction: column;
-  max-width: 850px;
+  max-width: none;
   width: 100%;
-
-  margin: 2rem 0;
+  margin: 0;
   overflow: hidden;
-  min-height: auto;
 }
 
 .project-card-featured .project-media {
   width: 100%;
-  height: 260px;
   border-bottom: 1px solid var(--border);
   border-right: none;
   flex: none;
@@ -414,9 +413,10 @@ a {
 }
 
 .project-card-featured .project-content {
-  flex: none;
-  display: block;
-  padding: 2rem 2rem 1rem;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 18px 20px 8px;
   text-align: left;
 }
 
@@ -425,52 +425,32 @@ a {
 }
 
 .project-card-featured .project-content h3 {
-  font-size: 26px;
-  margin-bottom: 14px;
+  font-size: 17px;
+  margin-bottom: 8px;
 }
 
 .project-card-featured .project-content p {
-  font-size: 16px;
-  line-height: 1.8;
+  font-size: 13.5px;
+  line-height: 1.65;
   margin-bottom: 0;
 }
 
 .project-card-featured .project-actions {
-  flex: none;
   display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  padding: 1rem 2rem 2rem;
-  height: auto;
+  gap: 8px;
+  padding: 14px 20px 18px;
+  flex-wrap: wrap;
   background: transparent;
   border-left: none;
   border-right: none;
 }
 
-[dir="rtl"] .project-card-featured .project-actions {
-  justify-content: flex-start;
-}
-
 .project-card-featured .project-action {
-  width: auto;
-  min-width: 160px;
+  flex: 1;
+  min-width: 110px;
   margin: 0;
 }
 
-@media (max-width: 768px) {
-  .project-card-featured .project-media {
-    height: 200px;
-  }
-  .project-card-featured .project-img {
-    height: 200px;
-  }
-  .project-card-featured .project-content {
-    padding: 1.5rem 1.5rem 0.5rem;
-  }
-  .project-card-featured .project-actions {
-    padding: 1rem 1.5rem 1.5rem;
-  }
-}
 .project-card:hover {
   transform: translateY(-5px);
   border-color: rgba(59, 130, 246, 0.5);
@@ -558,13 +538,14 @@ a {
   display: flex;
   justify-content: center;
   width: 100%;
-  max-width: 680px;
+  max-width: 760px;
   margin: 28px auto 0;
 }
 [dir="rtl"] .contact-shell {
   text-align: right;
 }
 .contact-card {
+  width: 100%;
   padding: 30px 28px;
 }
 .contact-form {
