@@ -1,4 +1,3 @@
-
 const buildCorsHeaders = (allowed) => ({
   "Access-Control-Allow-Origin": allowed || "*",
   "Access-Control-Allow-Methods": "POST, OPTIONS",
@@ -32,19 +31,25 @@ function validate(body) {
   return errors;
 }
 
+/* === [SERVERLESS_REVENUE_PIPELINE] START === */
 async function sendEmail(env, body) {
-  // Optional: only sends when RESEND_API_KEY + TO_EMAIL are configured.
   if (!env.RESEND_API_KEY || !env.TO_EMAIL) return;
-  const services = Array.isArray(body.service) ? body.service.join(", ") : "";
+
+  // سطر ذكي: يقرأ النص الجاهز من الفرونت إند، وإذا لم يجده يحول المصفوفة إلى نص، وإذا فشل يضع N/A
+  const servicesData =
+    body.services ||
+    (Array.isArray(body.service) ? body.service.join(", ") : "N/A");
+
   const html = `
     <h2>New contact message</h2>
     <p><b>Name:</b> ${escapeHtml(body.name)}</p>
     <p><b>Email:</b> ${escapeHtml(body.email)}</p>
     <p><b>WhatsApp:</b> ${escapeHtml(body.whatsapp || "—")}</p>
-    <p><b>Service:</b> ${escapeHtml(services)}</p>
+    <p><b>Service:</b> ${escapeHtml(servicesData)}</p>
     <p><b>Message:</b></p>
     <pre style="white-space:pre-wrap;font-family:inherit">${escapeHtml(body.message)}</pre>
   `;
+  /* === [SERVERLESS_REVENUE_PIPELINE] END === */
   await fetch("https://api.resend.com/emails", {
     method: "POST",
     headers: {
@@ -62,13 +67,17 @@ async function sendEmail(env, body) {
 }
 
 function escapeHtml(s) {
-  return String(s).replace(/[&<>"']/g, (c) => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;",
-    "'": "&#39;",
-  }[c]));
+  return String(s).replace(
+    /[&<>"']/g,
+    (c) =>
+      ({
+        "&": "&amp;",
+        "<": "&lt;",
+        ">": "&gt;",
+        '"': "&quot;",
+        "'": "&#39;",
+      })[c],
+  );
 }
 
 export default {

@@ -468,20 +468,30 @@ function initContactForm() {
     });
   });
 
-  form.addEventListener("submit", async (e) => {
-    e.preventDefault();
+  /* === [CONTACT_FORM_SUBMISSION] START === */
+form.addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-    const formData = new FormData(form);
-    const data = {
-      name: formData.get("name").trim(),
-      email: formData.get("email").trim(),
-      company: formData.get("company").trim(),
-      whatsapp: `${formData.get("countryCode")} ${formData.get("whatsapp").trim()}`,
-      service: Array.from(
-        form.querySelectorAll('input[name="service"]:checked'),
-      ).map((cb) => cb.value),
-      message: formData.get("message").trim(),
-    };
+  const formData = new FormData(form);
+  
+  // 1. تجميع الخدمات في مصفوفة أولاً
+  const selectedServices = Array.from(
+    form.querySelectorAll('input[name="service"]:checked')
+  ).map((cb) => cb.value);
+
+  const data = {
+    name: formData.get("name").trim(),
+    email: formData.get("email").trim(),
+    company: formData.get("company").trim(),
+    whatsapp: `${formData.get("countryCode")} ${formData.get("whatsapp").trim()}`,
+    
+    // 2. إرسال الصيغتين لضمان التوافق الكامل مع البوت والإيميل
+    service: selectedServices,                 // مصفوفة من أجل الفاليديشن في الووركر
+    services: selectedServices.join(", "),     // نص مدمج جاهز للطباعة في التلجرام والإيميل
+    
+    message: formData.get("message").trim(),
+  };
+/* === [CONTACT_FORM_SUBMISSION] END === */
 
     // Validation
     let hasError = false;
