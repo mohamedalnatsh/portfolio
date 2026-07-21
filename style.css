@@ -86,18 +86,18 @@ a {
 
 /* === [NAVBAR_BRAND_ICON] START === */
 .brand-mark-svg {
-  width: 38px;
-  height: 38px;
+  width: 38px !important;
+  height: 38px !important;
+  max-width: 38px !important;
+  max-height: 38px !important;
   display: block;
-  flex-shrink: 0;
-  transition: transform 0.3s ease, filter 0.3s ease;
-  filter: drop-shadow(0 0 6px rgba(59, 130, 246, 0.16));
+  flex-shrink: 0 !important;
+  transition: transform 0.3s ease;
 }
 
 .brand:hover .brand-mark-svg,
 .brand:focus-visible .brand-mark-svg {
   transform: scale(1.08);
-  filter: drop-shadow(0 0 10px rgba(6, 182, 212, 0.45));
 }
 /* === [NAVBAR_BRAND_ICON] END === */
 

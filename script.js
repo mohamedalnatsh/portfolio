@@ -1,8 +1,11 @@
+/* === [SCRIPT_HEADER] START === */
 /**
  * Mohammed AL-Natsha — Portfolio Main Frontend Script
  * Unified logic for Language Toggle, Country Codes, and Form Submission
  */
+/* === [SCRIPT_HEADER] END === */
 
+/* === [TRANSLATIONS] START === */
 const translations = {
   en: {
     // Nav
@@ -285,6 +288,7 @@ const translations = {
   },
 };
 
+/* === [COUNTRY_DIAL_CODES] START === */
 const countryDialCodes = [
   { code: "PS", name: "Palestine", dial: "+970", flag: "🇵🇸" },
   { code: "IL", name: "Israel", dial: "+972", flag: "🇮🇱" },
@@ -355,7 +359,9 @@ const countryDialCodes = [
 
 const CLOUDFLARE_WORKER_URL =
   "https://telgram-bot.contact-opticore.workers.dev/";
+/* === [COUNTRY_DIAL_CODES] END === */
 
+/* === [INITIALIZATION] START === */
 document.addEventListener("DOMContentLoaded", () => {
   initLanguage();
   initCountrySelect();
@@ -363,13 +369,18 @@ document.addEventListener("DOMContentLoaded", () => {
   updateYear();
   highlightActiveLink();
 });
+/* === [INITIALIZATION] END === */
 
+/* === [YEAR_UPDATER] START === */
 function updateYear() {
   const yearElements = document.querySelectorAll(".current-year");
   const year = new Date().getFullYear();
   yearElements.forEach((el) => (el.textContent = year));
 }
 
+/* === [YEAR_UPDATER] END === */
+
+/* === [NAV_HIGHLIGHT] START === */
 function highlightActiveLink() {
   const currentPath = window.location.pathname.split("/").pop() || "index.html";
   const navLinks = document.querySelectorAll(".nav-links a");
@@ -383,6 +394,9 @@ function highlightActiveLink() {
   });
 }
 
+/* === [NAV_HIGHLIGHT] END === */
+
+/* === [LANGUAGE_TOGGLE] START === */
 function initLanguage() {
   const savedLang = localStorage.getItem("lang") || "en";
   applyLanguage(savedLang);
@@ -398,6 +412,9 @@ function initLanguage() {
   }
 }
 
+/* === [LANGUAGE_TOGGLE] END === */
+
+/* === [LANGUAGE_APPLY] START === */
 function applyLanguage(lang) {
   document.documentElement.lang = lang;
   document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
@@ -432,6 +449,9 @@ function applyLanguage(lang) {
   }
 }
 
+/* === [LANGUAGE_APPLY] END === */
+
+/* === [COUNTRY_SELECT] START === */
 function initCountrySelect() {
   const select = document.getElementById("countryCode");
   if (!select) return;
@@ -445,6 +465,9 @@ function initCountrySelect() {
   });
 }
 
+/* === [COUNTRY_SELECT] END === */
+
+/* === [CONTACT_FORM] START === */
 function initContactForm() {
   const form = document.getElementById("contactForm");
   if (!form) return;
@@ -469,29 +492,24 @@ function initContactForm() {
   });
 
   /* === [CONTACT_FORM_SUBMISSION] START === */
-form.addEventListener("submit", async (e) => {
-  e.preventDefault();
+  form.addEventListener("submit", async (e) => {
+    e.preventDefault();
 
-  const formData = new FormData(form);
-  
-  // 1. تجميع الخدمات في مصفوفة أولاً
-  const selectedServices = Array.from(
-    form.querySelectorAll('input[name="service"]:checked')
-  ).map((cb) => cb.value);
+    const formData = new FormData(form);
+    const selectedServices = Array.from(
+      form.querySelectorAll('input[name="service"]:checked'),
+    ).map((cb) => cb.value);
 
-  const data = {
-    name: formData.get("name").trim(),
-    email: formData.get("email").trim(),
-    company: formData.get("company").trim(),
-    whatsapp: `${formData.get("countryCode")} ${formData.get("whatsapp").trim()}`,
-    
-    // 2. إرسال الصيغتين لضمان التوافق الكامل مع البوت والإيميل
-    service: selectedServices,                 // مصفوفة من أجل الفاليديشن في الووركر
-    services: selectedServices.join(", "),     // نص مدمج جاهز للطباعة في التلجرام والإيميل
-    
-    message: formData.get("message").trim(),
-  };
-/* === [CONTACT_FORM_SUBMISSION] END === */
+    const data = {
+      name: formData.get("name").trim(),
+      email: formData.get("email").trim(),
+      company: formData.get("company").trim(),
+      whatsapp: `${formData.get("countryCode")} ${formData.get("whatsapp").trim()}`,
+      service: selectedServices,
+      services: selectedServices.join(", "),
+      message: formData.get("message").trim(),
+    };
+    /* === [CONTACT_FORM_SUBMISSION] END === */
 
     // Validation
     let hasError = false;
